@@ -8,8 +8,8 @@ push_url = ""
 
 
 def star_counter(username: str, token: "") -> int:
-    all_repos_url = f"https://api.github.com/users/{username}/repos?per_page=100"
-    header = {} if token == "" else {"Authorization": f"bearer {token}"}
+    all_repos_url = "https://api.github.com/users/{}/repos?per_page=100".format(username)
+    header = {} if token == "" else {"Authorization": "bearer {}".format(token)}
     res = requests.get(all_repos_url, header)
     repos = res.json()
     count = 0
@@ -33,12 +33,12 @@ def save_count(count: int):
 
 
 def send_message(msg: str):
-    requests.get(f"{push_url}{msg}")
+    requests.get("{}{}".format(push_url, msg))
 
 
 def main():
     if len(sys.argv) != 4:
-        print(f"Error! This script requires three arguments: GITHUB_USERNAME GITHUB_TOKEN PUSH_URL")
+        print("Error! This script requires three arguments: GITHUB_USERNAME GITHUB_TOKEN PUSH_URL")
         return
     username = sys.argv[1]
     token = sys.argv[2]
@@ -48,9 +48,9 @@ def main():
     current_count = star_counter(username, token)
     if current_count != last_count:
         if current_count > last_count:
-            send_message(f"Star 数量增加了，哈哈！{last_count} --> {current_count}！")
+            send_message("Star 数量增加了，哈哈！{} --> {}！".format(last_count, current_count))
         else:
-            send_message(f"Star 数量减少了，淦！{last_count} --> {current_count}！")
+            send_message("Star 数量减少了，淦！{} --> {}！".format(last_count, current_count))
         save_count(current_count)
 
 
