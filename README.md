@@ -8,6 +8,6 @@
 `.\star_watcher.py GITHUB_USERNAME GITHUB_TOKEN  https://sc.ftqq.com/[SCKEY].send?text=`
 第三个参数是消息推送 URL，上述给的例子是 server 酱，也可以用[我自己实现的版本](https://github.com/songquanpeng/message-pusher)。
 
-## Github Readme Profile Generator
+## [Github Readme Profile Generator](https://github.com/songquanpeng/songquanpeng)
 Generate readme profile for you.
 [Demo here](https://github.com/songquanpeng).
