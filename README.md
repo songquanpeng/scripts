@@ -18,3 +18,6 @@ Generate readme profile for you.
 ## Text 2 Voice
 
 文字转语音，目前支持中文以及英文。
+
+## Network Camera
+网络摄像头的简单实现。
